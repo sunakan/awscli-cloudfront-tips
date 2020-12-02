@@ -13,6 +13,10 @@ include makefiles/help.mk
 ################################################################################
 # タスク
 ################################################################################
-.PHONY: deploy-docs
-deploy-docs: ## ドキュメントをデプロイする
-	git subtree push --prefix docs/html/ origin gh-pages
+.PHONY: hello
+hello:
+	aws sts get-caller-identity
+
+.PHONY: list
+list:
+	aws cloudfront list-distributions
